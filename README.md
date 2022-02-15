@@ -1,6 +1,7 @@
 # Cronjobber
 
-Cronjobber is the cronjob controller from Kubernetes patched with time zone support.
+Cronjobber is re-written using kubebuilder with reference from project https://github.com/hiddeco/cronjobber. the cronjob controller from Kubernetes patched with time zone support.
+This is only for pratice purpose
 
 
 ## Usage
