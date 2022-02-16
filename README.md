@@ -13,7 +13,7 @@ to the time zone you wish to schedule your jobs in and Cronjobber will
 take care of the rest.
 
 ```yaml
-apiVersion: cronjobber.hidde.co/v1alpha1
+apiVersion: cronjobber.github.com/v1
 kind: TZCronJob
 metadata:
   name: hello
