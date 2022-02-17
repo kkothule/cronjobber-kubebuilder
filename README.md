@@ -19,13 +19,14 @@ to the time zone you wish to schedule your jobs in and Cronjobber will
 take care of the rest.
 
 ```yaml
-apiVersion: cronjobber.github.com/v1
-kind: TZCronJob
+apiVersion: tzcronjob.github.com/v1
+kind: TZCronjob
 metadata:
-  name: hello
+  name: tzcronjob-sample
 spec:
   schedule: "*/1 * * * *"
   timezone: "Europe/Amsterdam"
+  successfulJobsHistoryLimit: 2
   jobTemplate:
     spec:
       template:
