@@ -13,4 +13,4 @@ kind: Kustomization
 images:
 - name: controller
   newName: kirankothule2011/cronjobber-controller
-  newTag: latest
+  newTag: 0.0.5

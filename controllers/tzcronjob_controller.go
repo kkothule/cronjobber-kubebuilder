@@ -99,7 +99,6 @@ func (r *TZCronjobReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 		log.Error(err, "unable to list child Jobs")
 		return ctrl.Result{}, err
 	}
-
 	/*
 		<aside class="note">
 		<h1>What is this index about?</h1>
@@ -512,7 +511,6 @@ func (r *TZCronjobReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	if r.Clock == nil {
 		r.Clock = realClock{}
 	}
-
 	if err := mgr.GetFieldIndexer().IndexField(context.Background(), &kbatch.Job{}, jobOwnerKey, func(rawObj client.Object) []string {
 		// grab the job object, extract the owner...
 		job := rawObj.(*kbatch.Job)
@@ -521,7 +519,7 @@ func (r *TZCronjobReconciler) SetupWithManager(mgr ctrl.Manager) error {
 			return nil
 		}
 		// ...make sure it's a CronJob...
-		if owner.APIVersion != apiGVStr || owner.Kind != "TZCronjobber" {
+		if owner.APIVersion != apiGVStr || owner.Kind != "TZCronjob" {
 			return nil
 		}
 
