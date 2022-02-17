@@ -31,7 +31,7 @@ spec:
         - /manager
         args:
         - --leader-elect
-        image: kirankothule2011/cronjobber-controller:0.0.5
+        image: cronjobber-controller:latest
         name: manager
         securityContext:
           allowPrivilegeEscalation: false

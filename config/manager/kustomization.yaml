@@ -12,5 +12,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
 - name: controller
-  newName: kirankothule2011/cronjobber-controller
-  newTag: 0.0.5
+  newName: cronjobber-controller
+  newTag: latest

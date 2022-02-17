@@ -1,6 +1,6 @@
 
 # Image URL to use all building/pushing image targets
-IMG ?= kirankothule2011/cronjobber-controller:0.0.5
+IMG ?= cronjobber-controller:latest
 # ENVTEST_K8S_VERSION refers to the version of kubebuilder assets to be downloaded by envtest binary.
 ENVTEST_K8S_VERSION = 1.23
 
@@ -117,8 +117,15 @@ envtest: ## Download envtest-setup locally if necessary.
 
 dry-run: manifests
 	cd config/manager && $(KUSTOMIZE) edit set image controller=${IMG}
-	mkdir -p dry-run
+	mkdir -p deploy
 	$(KUSTOMIZE) build config/default > deploy/manifests.yaml
+
+HELMIFY = $(shell pwd)/bin/helmify
+helmify:
+	$(call go-get-tool,$(HELMIFY),github.com/arttor/helmify/cmd/helmify@v0.3.7)
+
+helm: manifests kustomize helmify
+	$(KUSTOMIZE) build config/default | $(HELMIFY)
 
 # go-get-tool will 'go get' any package $2 and install it to $1.
 PROJECT_DIR := $(shell dirname $(abspath $(lastword $(MAKEFILE_LIST))))
