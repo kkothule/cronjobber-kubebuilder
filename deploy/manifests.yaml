@@ -4487,7 +4487,7 @@ spec:
         - --leader-elect
         command:
         - /manager
-        image: kirankothule2011/cronjobber-controller:0.0.5
+        image: cronjobber-controller:0.0.5
         livenessProbe:
           httpGet:
             path: /healthz
