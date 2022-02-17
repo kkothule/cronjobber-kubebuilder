@@ -7,7 +7,7 @@ This is only for pratice purpose
 
 ```sh
 # Install everything in one go
-$ kubectl apply -f https://raw.githubusercontent.com/hiddeco/cronjobber/master/deploy/manifest.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kkothule/cronjobber/main/deploy/manifests.yaml
 ```
 
 ## Usage
